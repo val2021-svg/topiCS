@@ -30,8 +30,6 @@ async function getChart() {
     console.log('I woke up after 1 second.');
     var getlabels = '<%- JSON.stringify(topicsofcourse) %>';
     var getdata = '<%- JSON.stringify(probsofcourse) %>';
-    //data[0] = 4;
-    //labels[0] = "aqui";
     // Parse the strings into arrays using JSON parsing
     const keyArray = JSON.parse(getlabels);
     const valueArray = JSON.parse(getdata);

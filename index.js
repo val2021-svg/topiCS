@@ -7,14 +7,10 @@ const app = express()
 
 app.use(bodyParser.json())
 app.use(express.static('public'));
-/* app.use(bodyParser.urlencoded({
-    extended:true
-})) */
 
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 app.set("view engine", "ejs");
-//const {URI} = process.env;
 let mongoose = require('mongoose');
 mongoose.connect(process.env.URI,{
     useNewUrlParser: true,
@@ -35,8 +31,6 @@ var courseSchema = new mongoose.Schema({
 
 var Course = mongoose.model("Course", courseSchema);
 
-
-
 app.get("/", async (req, res) => {
     res.set({
       "Allow-access-Allow-Origin": "*",
@@ -51,7 +45,6 @@ app.get("/", async (req, res) => {
       }
     
   })
-
 
 app.post('/course', urlencodedParser, async function(req,res){
     var selectedcourse = req.body.courseselecting;
@@ -79,7 +72,6 @@ app.post('/course', urlencodedParser, async function(req,res){
 
 
         res.render("topics", { selectedcourse: selectedcourse, topicsofcourse: topics, probsofcourse: values});
-      //res.send(topic);
   }
 })
 
