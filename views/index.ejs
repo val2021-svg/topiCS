@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+
+</head>
+    
+
+
+<body>
+
+  <img src="LOGO.png">  
+
+  <hr class="hr3">
+
+  &nbsp
+  &nbsp
+  &nbsp
+
+<form class="form" id="tableForm" action="/course" method="post" onchange="sleepyWork()">
+  <select style="font-size: 22px; font-weight: bold; height: 40px; width: 700px" class="courseselecting" name="courseselecting" id="course-select">
+      <option style="font-size: 22px" value="">--Please choose a course--</option>
+    <!-- Use a loop to dynamically create options from the courseIds array -->
+      <% courses.forEach(function(CourseID) { %>
+      <option style="font-size: 22px; height: 40px; width: 700px;" type = "chosen" value="<%= CourseID %>"><%= CourseID %>
+      </option>
+      <% }) %>
+  </select>
+  <input style="height: 40px; width: 90px; font-size: 22px; background-color: #B1003B; font-weight: bold; color:white" type="submit" value="Search" />
+</form>
+
+
+
+</body>
+</html>
+ 

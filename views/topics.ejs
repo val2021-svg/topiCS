@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href= "styles.css" rel="stylesheet" type="text/css" />
+    
+</head>
+
+<body>
+
+  <img src="LOGO.png"> 
+  <hr class="hr3">
+  &nbsp
+
+      <div class="container">
+        <canvas id="myChart" width="3000" height="1400" runat="server" align="center"></canvas>
+    </div>
+
+<script>
+
+
+const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
+
+async function getChart() {
+    console.log("I'm going to sleep for 1 second.");
+    await sleep(1000);
+    console.log('I woke up after 1 second.');
+    var getlabels = '<%- JSON.stringify(topicsofcourse) %>';
+    var getdata = '<%- JSON.stringify(probsofcourse) %>';
+    //data[0] = 4;
+    //labels[0] = "aqui";
+    // Parse the strings into arrays using JSON parsing
+    const keyArray = JSON.parse(getlabels);
+    const valueArray = JSON.parse(getdata);
+    console.log(Array.isArray(keyArray));
+    console.log(Array.isArray(valueArray));
+    const nthElement = (arr, n = 0) => (n > 0 ? arr.slice(n, n + 1) : arr.slice(n))[0];
+    labels[0] = nthElement(keyArray, 0);
+    labels[1] = nthElement(keyArray, 1);
+    labels[2] = nthElement(keyArray, 2);
+    labels[3] = nthElement(keyArray, 3);
+    labels[4] = nthElement(keyArray, 4);
+    data[0] = nthElement(valueArray, 0);
+    data[1] = nthElement(valueArray, 1);
+    data[2] = nthElement(valueArray, 2);
+    data[3] = nthElement(valueArray, 3);
+    data[4] = nthElement(valueArray, 4);
+
+    console.log(nthElement(keyArray, 0));
+    chart.update();
+}
+
+    const ctx = document.getElementById('myChart'); 
+  
+    const data = [0, 0, 0, 0, 0]; 
+    const labels = ['Topic 1','Topic 2','Topic 3', 'Topic 4', 'Topic 5'];
+    getChart(); // Test
+
+    chart = new Chart(ctx, {
+    type: 'radar',
+    data: {
+      labels: labels,
+      datasets: [{
+        label: 'Probability',
+        fill: true,
+        backgroundColor: "rgba(255,99,132,0.2)",
+          borderColor: "#B1003B",
+          pointBackgroundColor: "#B1003B",
+          pointBorderColor: "#B1003B",
+        data: data,
+        borderWidth: 5
+      }]
+    },
+    
+    options: {
+      responsive: true,
+      plugins: {
+        background: {
+            color:'cyan'
+        },
+        title: {
+        display: true,
+        text: 'Recurring Topics in <%=selectedcourse%>',
+        font: {
+            size: 30
+          }
+        },
+        legend: {
+                labels: {
+                    // This more specific font property overrides the global property
+                    font: {
+                        size: 24
+                    }
+                }
+            },
+        hover: {
+          size: 80
+        }      
+    },
+    scales: {
+      r: {
+        pointLabels: {
+          font: {
+            size: 24
+          }
+        }        
+      }
+    },
+    responsive: false
+    }
+  });
+  </script>
+</body>
+
+
+</html>

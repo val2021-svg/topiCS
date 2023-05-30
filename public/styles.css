@@ -1,0 +1,23 @@
+.container{
+    text-align: center;
+}
+
+myChart{
+    width: 50% !important;
+    margin: 0 auto;
+}
+
+.selcourse{
+    color: blue;
+}
+
+#course-select option{
+    width:150px;   
+   }
+
+
+.hr3 {
+    border: 0;
+    height: 5px;
+    background-image: linear-gradient(to right, transparent, #B1003B, transparent);  
+  }   
