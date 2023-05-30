@@ -1,5 +1,6 @@
 var express = require("express")
 var bodyParser = require("body-parser")
+require('dotenv').config();
 const ejs = require("ejs");
 
 const app = express()
@@ -13,9 +14,9 @@ app.use(express.static('public'));
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 app.set("view engine", "ejs");
-let uri = process.env;
+//const {URI} = process.env;
 let mongoose = require('mongoose');
-mongoose.connect(uri,{
+mongoose.connect(process.env.URI,{
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
