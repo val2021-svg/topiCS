@@ -9,13 +9,17 @@ To run the project locally, you need to install the run time environment:
 
 After that, in your command prompt, run:
 
+```javascript
 npm install mongoose mongodb ejs body-parser express nodemon dotenv
+```
 
 ## Run the webapp
 
 After installing those packages, run
 
-node index.js    
+```javascript
+node index.js  
+```
 
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
