@@ -1,6 +1,8 @@
 # topiCS
 
-![image](https://github.com/val2021-svg/topiCS/assets/95656628/841dfa16-c679-4ead-a733-26cc085b6482)
+<p align="center">
+  <img src="https://github.com/val2021-svg/topiCS/assets/95656628/841dfa16-c679-4ead-a733-26cc085b6482" />
+</p>
 
 This is the repository for the webapp topiCS of the user interface to access the results of the [topic discovery using LDA](https://github.com/Lucasvitoriano25/TopicDiscovery) on CS 1A and 2A courses catalogs.  
 
